@@ -1,0 +1,421 @@
+{
+  // ─────────────────────────────────────────────────────────────┤ header ├───
+
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "reload_style_on_change": true,
+  "gtk-layer-shell": true,
+
+  // ──────────────────────────────────────────────────────────┤ positions ├───
+
+  "modules-left": [
+    "hyprland/workspaces",  // workspaces
+    "custom/right1",
+
+    "custom/paddw",
+    "hyprland/window"       // window title
+  ],
+
+  "modules-center": [
+    "custom/paddc",
+    "custom/left2",
+    "custom/temperature",   // temperature
+
+    "custom/left3",
+    "memory",               // memory
+
+    "custom/left4",
+    "cpu",                  // cpu
+    "custom/leftin1",
+
+    "custom/left5",
+    "custom/distro",        // distro icon
+    "custom/right2",
+
+    "custom/rightin1",
+    "idle_inhibitor",       // idle inhibitor
+    "clock#time",           // time
+    "custom/right3",
+
+    "clock#date",           // date
+    "custom/right4",
+    
+    "custom/notification",
+    "custom/right5"
+  ],
+
+  "modules-right": [
+    "mpris",                // media info
+
+    "custom/left6",
+    "pulseaudio",           // output device
+
+    "custom/left7",
+    "tray",                 // tray
+
+    "custom/leftin2",
+    "custom/power"          // power button
+  ],
+  
+
+  // ─────────────────────────────────────────────────────────┤ workspaces ├───
+
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  // ─────────────────────────────────────────────────────────────┤ window ├───
+
+  "hyprland/window": {
+    "swap-icon-label": false,
+    "format": "{title}",
+    "tooltip": false,
+    "min-length": 5,
+
+    "rewrite": {
+      // ────────────────────────────────────────────────────────── desktop ───
+      "": 
+        "<span foreground='#89b4fa'> </span> Hyprland",
+
+      // ───────────────────────────────────────────────────────── terminal ───
+
+      "~": "  Terminal",
+      "zsh": "  Terminal",
+      "kitty": "  Terminal",
+
+      "tmux(.*)": 
+        "<span foreground='#a6e3a1'> </span> Tmux",
+
+      // ────────────────────────────────────────────────────────── browser ───
+
+      "(.*)Chrome": 
+        "<span foreground='#f38ba8'>󰊯  </span> Chrome",
+      "(.*) — Chrome": 
+        "<span foreground='#f38ba8'>󰊯  </span> $1",
+        
+       "(.*)Chromium": 
+        "<span foreground='#f38ba8'>󰊯  </span> Chromium",
+      "(.*) — Chromium": 
+        "<span foreground='#f38ba8'>󰊯  </span> $1",
+
+      // ────────────────────────────────────────────────────── development ───
+ 
+      "nvim": 
+        "<span foreground='#a6e3a1'> </span> Neovim",
+      "nvim (.*)": 
+        "<span foreground='#a6e3a1'> </span> $1",
+
+      "vim": 
+        "<span foreground='#a6e3a1'> </span> Vim",
+      "vim (.*)": 
+        "<span foreground='#a6e3a1'> </span> $1",
+
+      // ──────────────────────────────────────────────────────────── media ───
+
+      "(.*)Spotify": 
+        "<span foreground='#a6e3a1'>  </span> Spotify",
+      "(.*)Spotify Premium": 
+        "<span foreground='#a6e3a1'>  </span> Spotify Premium",
+
+      "OBS(.*)": 
+        "<span foreground='#a6adc8'>󰻃  </span> OBS Studio",
+
+      "VLC media player": 
+        "<span foreground='#fab387'>󰕼  </span> VLC Media Player",
+      "(.*) - VLC media player": 
+        "<span foreground='#fab387'>󰕼  </span> $1",
+
+      "Visual Studio Code": 
+        "<span foreground='#fab387'>  </span> Visual Studio Code",
+      "(.*) - Visual Studio Code": 
+        "<span foreground='#fab387'>  </span> $1",
+
+      "(.*) - mpv": 
+        "<span foreground='#cba6f7'> </span> $1",
+
+      "qView": "󰋩  qView",
+
+      "(.*).jpg": "󰋩  $1.jpg",
+      "(.*).png": "󰋩  $1.png",
+      "(.*).svg": "󰋩  $1.svg",
+
+      // ─────────────────────────────────────────────────────────── social ───
+
+      "• Discord(.*)": "Discord$1",
+      "(.*)Discord(.*)": 
+        "<span foreground='#89b4fa'> </span> $1Discord$2",
+
+      "vesktop": 
+        "<span foreground='#89b4fa'> </span> Discord",
+
+
+      // ─────────────────────────────────────────────────────────── system ───
+      
+      "Authenticate": "  Authenticate"
+    }
+  },
+
+  // ────────────────────────────────────────────────────────┤ temperature ├───
+
+  "custom/temperature": {
+    "exec": "~/.config/waybar/scripts/cpu-temp.sh",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 5,
+    "min-length": 8,
+    "max-length": 8
+  },
+
+  // ─────────────────────────────────────────────────────────────┤ memory ├───
+
+  "memory": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+
+    "format": "󰘚 {percentage}%",
+    "format-critical": "󰀦 {percentage}%",
+   // "tooltip": false,
+    "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
+    "interval": 5,
+    "min-length": 7,
+    "max-length": 7
+  },
+
+  // ────────────────────────────────────────────────────────────────┤ cpu ├───
+
+  "cpu": {
+    "format": "󰍛 {usage}%",
+    "tooltip": false,
+    "interval": 5,
+    "min-length": 6,
+    "max-length": 6
+  },
+
+  // ─────────────────────────────────────────────────────────────┤ distro ├───
+
+  "custom/distro": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  // ─────────────────────────────────────────────────────┤ idle inhibitor ├───
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+
+    "format-icons": {
+      "activated": "󰈈 ",
+      "deactivated": "󰈉 "
+    },
+
+    "tooltip-format-activated": "Presentation Mode",
+    "tooltip-format-deactivated": "Idle Mode",
+    "start-activated": false
+  },
+
+  // ───────────────────────────────────────────────────────────────┤ time ├───
+
+  "clock#time": {
+    "format": "{:%H:%M}",
+    "tooltip": false,
+    // "tooltip-format": "Standard Time: {:%I:%M %p}",
+    "min-length": 6,
+    "max-length": 6
+  },
+
+  // ───────────────────────────────────────────────────────────────┤ date ├───
+
+  "clock#date": {
+    "format": "󰸗 {:%m-%d}",
+    
+    "calendar": {
+        "format": {
+          "days": "<span weight='normal'>{}</span>",
+          "months": "<span color='#cdd6f4'><b>{}</b></span>",
+          "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
+          "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+          "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
+      },
+        "mode": "month",
+        "mode-mon-col": 1,
+        "on-scroll": 1,
+    },
+
+    "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
+    "min-length": 8,
+    "max-length": 8
+  },
+
+
+
+
+  // ─────────────────────────────────────────────────────────┤ media info ├───
+
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+
+    "player-icons": {
+      "default": "󰝚 ",
+      "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
+      "firefox": "<span foreground='#f38ba8'>󰗃 </span>"
+    },
+    "status-icons": {
+      "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
+    },
+
+    "tooltip-format": "Playing: {title} - {artist}",
+    "tooltip-format-paused": "Paused: {title} - {artist}",
+    "min-length": 5,
+    "max-length": 35
+  },
+
+  // ──────────────────────────────────────────────────────┤ output device ├───
+
+  "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": "  muted",
+      "format-icons": {
+        "headphone": "  ",
+        "default": [" ", " ", "  "],
+      },
+      "on-click": "pavucontrol",
+    },
+
+ 
+  // ───────────────────────────────────────────────────────┤ power button ├───
+
+  "custom/power": {
+    "format": " ",
+    "tooltip": false,
+    // "tooltip-format": "Power Menu",
+    "on-click": "wlogout -p layer-shell &"
+  },
+
+  // ────────────────────────────────────────────────────────────┤ padding ├───
+
+  "custom/paddw": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "custom/paddc": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  // ────────────────────────────────────────────────────────┤ left arrows ├───
+
+  "custom/left1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left5": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left6": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left7": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left8": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ───────────────────────────────────────────────────────┤ right arrows ├───
+
+  "custom/right1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right4": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right5": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ───────────────────────────────────────────────────────┤ left inverse ├───
+
+  "custom/leftin1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/leftin2": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ──────────────────────────────────────────────────────┤ right inverse ├───
+
+  "custom/rightin1": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // ──────────────────────────────────────────────────────┤ notification ├───
+
+  "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "  ",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "  ",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "  ",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": "  "
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "custom/power": {
+      "tooltip": false,
+      "on-click": "wlogout -p layer-shell &",
+      "format": "⏻",
+    },
+}
