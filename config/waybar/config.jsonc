@@ -293,14 +293,17 @@
       "on-click": "pavucontrol",
     },
 
+  // ────────────────────────────────────────────────────────────────┤ tray ├───
+  "tray": {
+    "show-passive-items": true
+  },
  
   // ───────────────────────────────────────────────────────┤ power button ├───
 
   "custom/power": {
-    "format": " ",
-    "tooltip": false,
-    // "tooltip-format": "Power Menu",
-    "on-click": "wlogout -p layer-shell &"
+      "tooltip": false,
+      "on-click": "wlogout -p layer-shell &",
+      "format": "⏻"
   },
 
   // ────────────────────────────────────────────────────────────┤ padding ├───
@@ -412,10 +415,5 @@
       "on-click": "swaync-client -t -sw",
       "on-click-right": "swaync-client -d -sw",
       "escape": true
-    },
-    "custom/power": {
-      "tooltip": false,
-      "on-click": "wlogout -p layer-shell &",
-      "format": "⏻",
-    },
+    }
 }
