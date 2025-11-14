@@ -245,11 +245,11 @@
           "months": "<span color='#cdd6f4'><b>{}</b></span>",
           "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
           "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-          "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
+          "weeks": "<span color='#a6e3a1'><b>W{}</b></span>"
       },
         "mode": "month",
         "mode-mon-col": 1,
-        "on-scroll": 1,
+        "on-scroll": 1
     },
 
     "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
@@ -269,7 +269,7 @@
     "player-icons": {
       "default": "󰝚 ",
       "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
-      "firefox": "<span foreground='#f38ba8'>󰗃 </span>"
+      "chromium": "<span foreground='#f38ba8'>󰗃 </span>"
     },
     "status-icons": {
       "paused": "<span color='#b4befe'>\u200A\u200A󰏤\u2009\u2009</span>"
@@ -288,9 +288,9 @@
       "format-muted": "  muted",
       "format-icons": {
         "headphone": "  ",
-        "default": [" ", " ", "  "],
+        "default": [" ", " ", "  "]
       },
-      "on-click": "pavucontrol",
+      "on-click": "pavucontrol"
     },
 
   // ────────────────────────────────────────────────────────────────┤ tray ├───
