@@ -1,0 +1,85 @@
+/* Accent Colors */
+
+@define-color rosewater       #c9d1d9;
+@define-color flamingo        #fdac54;
+@define-color pink            #bc8cff;
+@define-color mauve           #bc8cff;
+@define-color red             #ec8e2c;
+@define-color maroon          #fdac54;
+@define-color peach           #fdac54;
+@define-color yellow          #d29922;
+@define-color green           #58a6ff;
+@define-color teal            #39c5cf;
+@define-color sky             #39c5cf;
+@define-color sapphire        #39c5cf;
+@define-color blue            #58a6ff;
+@define-color lavender        #79c0ff;
+
+/* Text */
+
+@define-color text            #c9d1d9;
+@define-color subtext1        #b1bac4;
+@define-color subtext0        #6e7681;
+
+/* Overlays */
+
+@define-color overlay2        #6e7681;
+@define-color overlay1        #484f58;
+@define-color overlay0        #30363d;
+
+/* Surfaces */
+
+@define-color surface2        #30363d;
+@define-color surface1        #21262d;
+@define-color surface0        #161b22;
+
+/* Base Layers */
+
+@define-color base            #0d1117;
+@define-color mantle          #0d1117;
+@define-color crust           #010409;
+
+/* Pure */
+
+@define-color white           #ffffff;
+@define-color black           #000000;
+
+/* -------------------------------- */
+/* Semantic Usage (unchanged logic) */
+/* -------------------------------- */
+
+@define-color shadow          shade(@crust, 0.5);
+@define-color main-fg         @text;
+@define-color main-bg         @crust;
+@define-color main-br         @overlay2;
+
+@define-color active-bg       @overlay2;
+@define-color active-fg       @crust;
+
+@define-color hover-bg        @surface0;
+@define-color hover-fg        alpha(@text, 0.75);
+
+/* Module Colors */
+
+@define-color module-fg       @text;
+@define-color workspaces      @mantle;
+
+@define-color temperature     @mantle;
+@define-color memory          @base;
+@define-color cpu             @surface0;
+@define-color distro-fg       @black;
+@define-color distro-bg       @overlay2;
+@define-color time            @surface0;
+@define-color date            @base;
+@define-color tray            @mantle;
+
+@define-color pulseaudio      @mantle;
+@define-color backlight       @base;
+@define-color battery         @surface0;
+@define-color power           @overlay2;
+
+/* State Colors */
+
+@define-color warning         #d29922;
+@define-color critical        #ec8e2c;
+@define-color charging        #58a6ff;
