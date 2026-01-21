@@ -1,13 +1,13 @@
 * {
     font:   "Noto-Sans 12";
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
+    bg0:    #0d1117E6;
+    bg1:    #484f5880;
+    bg2:    #58a6ffE6;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
+    fg0:    #c9d1d9;
+    fg1:    #ffffff;
+    fg2:    #6e7681;
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -35,7 +35,7 @@ inputbar {
 icon-search {
     expand:     false;
     filename:   "search";
-    size: 28px;
+    size:       28px;
 }
 
 icon-search, entry, element-icon, element-text {
@@ -82,9 +82,10 @@ element alternate active {
     text-color: @bg2;
 }
 
-element selected normal, element selected active {
+element selected normal,
+element selected active {
     background-color:   @bg2;
-    text-color:         @fg1;
+    text-color:         @bg0;
 }
 
 element-icon {
