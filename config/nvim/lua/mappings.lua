@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+-- Fuzzy find in current buffer
+
+
 -- general mappings
 map("n", "<C-s>", "<cmd> w <CR>")
 map("i", "jk", "<ESC>")
@@ -13,11 +16,29 @@ map("n", "<C-h>", "<cmd> NvimTreeFocus <CR>")
 map("n", "<leader>rw", vim.cmd.Ex)
 
 -- telescope
-map("n", "<leader>ff", "<cmd> Telescope find_files <CR>")
-map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
-map("n", "<leader>fg", "<cmd> Telescope live_grep <CR>")
-map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
-map("n", "<leader>gf", "<cmd> Telescope git_files <CR>")
+map("n", "<leader>ff", function()
+  require('telescope.builtin').find_files()
+end, { desc = "Find files" })
+
+map("n", "<leader>fo", function()
+  require('telescope.builtin').oldfiles()
+end, { desc = "Open recent files" })
+
+map("n", "<leader>fg", function()
+  require('telescope.builtin').live_grep()
+end, { desc = "Live grep (search in project)" })
+
+map("n", "<leader>gt", function()
+  require('telescope.builtin').git_status()
+end, { desc = "Git status" })
+
+map("n", "<leader>gf", function()
+  require('telescope.builtin').git_files()
+end, { desc = "Find git files" })
+
+map("n", "<leader>sf", function()
+  require('telescope.builtin').current_buffer_fuzzy_find()
+end, { desc = "Fuzzy search in current file" })
 
 -- bufferline, cycle buffers
 map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
