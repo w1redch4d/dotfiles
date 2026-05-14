@@ -54,6 +54,9 @@
     "custom/left7",
     "tray",                 // tray
 
+    "custom/leftin1",   
+    "battery",               // battery
+
     "custom/leftin2",
     "custom/power"          // power button
   ],
@@ -201,6 +204,19 @@
     "min-length": 6,
     "max-length": 6
   },
+
+  "battery": {
+    "exec-if": "ls /sys/class/power_supply/BAT* >/dev/null 2>&1",
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["󰁺","󰁻","󰁼","󰁽", "󰁾", "󰂀", "󰁹"],
+    "max-length": 25
+ },
 
   // ─────────────────────────────────────────────────────────────┤ distro ├───
 
