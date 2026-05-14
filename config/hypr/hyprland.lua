@@ -17,7 +17,8 @@ local terminal      = "kitty"
 local fileManager   = "nautilus"
 local menu          = "rofi -show drun -show-icons"
 local window_switch = "rofi -show window"
-
+local bright_up     = "brightnessctl s 10%+"
+local bright_down   = "brightnessctl s 10%-"
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -44,7 +45,7 @@ hl.env("NVD_BACKEND", "direct")
 hl.config({
     general = {
         gaps_in  = 5,
-        gaps_out = 20,
+        gaps_out = 10,
 
         border_size = 1,
 
@@ -308,6 +309,17 @@ hl.bind(mainMod .. " + M", hl.dsp.exit())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(
+    "XF86MonBrightnessUp",
+    hl.dsp.exec_cmd(bright_up),
+    { locked = true, repeating = true }
+)
+
+hl.bind(
+    "XF86MonBrightnessDown",
+    hl.dsp.exec_cmd(bright_down),
+    { locked = true, repeating = true }
+)
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd(window_switch))

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-URL="https://www.reddit.com/r/wallpaper/top/.json?limit=100&t=day"
+URL="https://www.reddit.com/r/wallpaper/best.json?limit=100&t=day"
 OUT_DIR="$HOME/Pictures/Wallpapers"
 OUT_FILE="$OUT_DIR/pxfuel.png"
 
